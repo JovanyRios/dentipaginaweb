@@ -1,4 +1,8 @@
 // src/components/layout/Navbar.jsx
+// ... (mismo código que tenías, no necesita cambios, ya que la ruta /blog ya existe)
+// El botón "+ Nuevo Artículo" aparece en la propia página del blog si estás conectado.
+// Puedes añadir un enlace directo "Crear Artículo" al menú si lo deseas, siguiendo
+// el mismo patrón que con "Mis Clínicas".
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Button from '../common/Button';
@@ -13,7 +17,7 @@ const Navbar = () => {
   const baseNavigationLinks = [
     { name: 'Inicio', href: '/' },
     { name: 'Ver Clínicas', href: '/clinics' },
-    { name: 'Mis Clínicas', href: '/my-clinics', requiresAuth: true }, // <<< NUEVO ENLACE
+    { name: 'Mis Clínicas', href: '/my-clinics', requiresAuth: true },
     { name: 'Registrar Clínica', href: '/register-clinic', requiresAuth: true },
     { name: 'Blog', href: '/blog' },
   ];
@@ -42,7 +46,6 @@ const Navbar = () => {
           <span>Estás en el sitio web para México.</span>
         </div>
       </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
@@ -53,7 +56,6 @@ const Navbar = () => {
               <span className="font-bold text-xl text-slate-800">DentalApp</span>
             </Link>
           </div>
-
           <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
             {navigationLinks.map((item) => (
               <Link
@@ -68,7 +70,6 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-
           <div className="hidden md:flex items-center space-x-4">
             {isLoadingAuth ? (
               <div className="text-sm text-slate-500 animate-pulse">Verificando...</div>
@@ -92,7 +93,6 @@ const Navbar = () => {
               </>
             )}
           </div>
-
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -105,7 +105,6 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
       {isMobileMenuOpen && (
         <div className="md:hidden border-t border-gray-200" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -153,5 +152,4 @@ const Navbar = () => {
     </nav>
   );
 };
-
 export default Navbar;
